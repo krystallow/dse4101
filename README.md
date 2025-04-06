@@ -15,7 +15,7 @@ This study examines the impact of postgraduate degree attainment on student ment
 
 ---
 ### Repository Structure  
-.
+```plaintext
 ├── /data/                   # Raw dataset
 ├── data_preprocessing_and_exploration.R  # EDA + cleaning (run first)
 ├── combined.R               # Master script (all models + evaluation)
@@ -24,7 +24,7 @@ This study examines the impact of postgraduate degree attainment on student ment
 │   ├── fwl_partiallingout.R # Double/debiased ML
 │   └── xlearner.R           # X-learner meta-algorithm
 └── subgroup_analysis.R      # CATE subgroup investigation
-
+```
 ---
 
 ### Installation and Setup
