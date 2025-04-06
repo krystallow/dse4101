@@ -30,22 +30,23 @@ This study examines the impact of postgraduate degree attainment on student ment
 ### Installation and Setup
 1. Clone the repository
 2. Install R packages:
-`install.packages(c(
-  "dplyr",        # Data manipulation
-  "ggplot2",      # Visualization
-  "tidyverse",    # Data science ecosystem
-  "reshape2",     # Data reshaping
-  "corrplot",     # Correlation plots
-  "tidyr",        # Tidy data
-  "grf",          # Causal forests
-  "glmnet",       # Regularized regression
-  "causalweight", # Causal inference
-  "randomForest", # Random forests
-  "caret",        # Classification and regression training
-  "tidymodels",   # Modeling framework
-  "ranger",       # Fast random forests
-  "tableone",     # Descriptive tables
-  "patchwork"     # Plot arrangement
-))`
+```r
+install.packages(c(
+  "dplyr",         # Data manipulation
+  "ggplot2",       # Visualization
+  "tidyverse",     # Data science ecosystem
+  "reshape2",      # Data reshaping
+  "corrplot",      # Correlation plots
+  "tidyr",         # Tidy data
+  "grf",           # Causal forests
+  "glmnet",        # Regularized regression
+  "causalweight",  # Causal inference
+  "randomForest",  # Random forests
+  "caret",         # Classification and regression training
+  "tidymodels",    # Modeling framework
+  "ranger",        # Fast random forests
+  "tableone",      # Descriptive tables
+  "patchwork"      # Plot arrangement
+))
 
 --- 
