@@ -19,10 +19,10 @@ This study examines the impact of postgraduate degree attainment on student ment
 ├── /data/                   # Raw dataset
 ├── data_preprocessing_and_exploration.R  # EDA + cleaning (run first)
 ├── combined.R               # Master script (all models + evaluation)
-├── /models/                 # Individual model implementations
-│   ├── causalforest.R       # Causal forest (grf)
-│   ├── fwl_partiallingout.R # Double/debiased ML
-│   └── xlearner.R           # X-learner meta-algorithm
+├── # Individual models
+│   ├── causalforest.R       # Causal forest 
+│   ├── fwl_partiallingout.R # fwl
+│   └── xlearner.R           # X-learner
 └── subgroup_analysis.R      # CATE subgroup investigation
 ```
 ---
