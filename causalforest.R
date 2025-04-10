@@ -69,7 +69,6 @@ for (v in X_vars) {
 # Keep only complete cases
 complete_idx <- complete.cases(students[, c(X_vars, "Anxiety.Level", "Treatment")])
 students_complete <- students[complete_idx, ]
-cat("Number of complete observations:", nrow(students_complete), "\n")
 
 X <- model.matrix(~ . - 1, data = students_complete[, X_vars])  # one-hot encoded, no intercept
 Y <- students_complete$Anxiety.Level
@@ -85,22 +84,20 @@ tau_hat_cf <- cf_pred$predictions
 tau_se_cf <- sqrt(cf_pred$variance.estimates)
 
 blp_cf <- best_linear_projection(cf, A = D)
-cat("Causal Forest - Best Linear Projection Summary:\n")
 print(blp_cf)
 
 cf_mse <- mean((Y - predict(cf)$predictions)^2)
-cat("Causal Forest - MSE:", round(cf_mse, 4), "\n")
+round(cf_mse, 4)
 
 ci_width_cf <- mean(2 * 1.96 * tau_se_cf)
-cat("Causal Forest - Average 95% Confidence Interval Width:", round(ci_width_cf, 4), "\n")
+round(ci_width_cf, 4)
 
 var_imp <- variable_importance(cf)
 var_names <- colnames(X)
 importance_df <- data.frame(Variable = var_names, Importance = var_imp)
 importance_df <- importance_df[order(-importance_df$Importance), ]
 
-cat("Top Variables Influencing CATE (Causal Forest):\n")
-print(head(importance_df, 10))
+head(importance_df, 10)
 
 hist(tau_hat_cf, breaks = 30, main = "Distribution of CATE Estimates (Causal Forest)",
      xlab = "Estimated Treatment Effect", col = "lightblue")
@@ -160,11 +157,4 @@ ggplot(df_compare, aes(x = CATE, fill = Method)) +
   theme_minimal() +
   scale_fill_brewer(palette = "Set1")
 
-# Diagnostic metrics
-cat("Robustness Check \n")
-cat(sprintf("Correlation between full and CV estimates: %.3f\n", 
-            cor(tau_hat_cf, tau_hat_cv)))
-cat(sprintf("Mean absolute difference: %.3f\n", 
-            mean(abs(tau_hat_cf - tau_hat_cv))))
-cat(sprintf("Fraction of sign changes: %.3f\n", 
-            mean(sign(tau_hat_cf) != sign(tau_hat_cv))))
+mean(abs(tau_hat_cf - tau_hat_cv)
