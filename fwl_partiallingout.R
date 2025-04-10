@@ -102,11 +102,9 @@ cate_mse <- mean(residual_Y^2)
 cate_ci_width <- 2 * 1.96 * sd(residual_Y / (residual_D + 1e-6))
 cate_summary <- summary(cate_model)
 
-cat("\n FWL-CATE Model Evaluation with Cross-Fitting:\n")
-cat("MSE:", round(cate_mse, 4), "\n")
-cat("95% CI Width (approx):", round(cate_ci_width, 4), "\n")
+round(cate_mse, 4)
+round(cate_ci_width, 4)
 
-cat("\n Linear Regression Summary (CATE Model):\n")
 print(cate_summary)
 
 
