@@ -102,9 +102,8 @@ cate_pred <- predict(cate_model, X)
 dml_mse <- mean(residual_Y^2)
 dml_ci_width <- 2 * 1.96 * sd(residual_Y / (residual_D + 1e-6))
 
-cat("\n DML-CATE Model Evaluation:\n")
-cat("MSE:", round(dml_mse, 4), "\n")
-cat("95% CI Width (approx):", round(dml_ci_width, 4), "\n")
+round(dml_mse, 4)
+round(dml_ci_width, 4)
 
 
 hist(cate_pred, breaks = 30, main = "Distribution of CATE Estimates (DML - Residualized)",
