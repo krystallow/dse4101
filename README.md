@@ -22,6 +22,7 @@ This study examines the impact of postgraduate degree attainment on student ment
 ├── # Individual models
 │   ├── causalforest.R       # Causal forest 
 │   ├── fwl_partiallingout.R # fwl
+│   ├── doublemachinelearning.R # dml
 │   └── xlearner.R           # X-learner
 └── subgroup_analysis.R      # CATE subgroup investigation
 ```
@@ -32,21 +33,20 @@ This study examines the impact of postgraduate degree attainment on student ment
 2. Install R packages:
 ```r
 install.packages(c(
-  "dplyr",         # Data manipulation
-  "ggplot2",       # Visualization
-  "tidyverse",     # Data science ecosystem
-  "reshape2",      # Data reshaping
-  "corrplot",      # Correlation plots
-  "tidyr",         # Tidy data
-  "grf",           # Causal forests
-  "glmnet",        # Regularized regression
-  "causalweight",  # Causal inference
-  "randomForest",  # Random forests
-  "caret",         # Classification and regression training
-  "tidymodels",    # Modeling framework
-  "ranger",        # Fast random forests
-  "tableone",      # Descriptive tables
-  "patchwork"      # Plot arrangement
+  "dplyr",         
+  "ggplot2",       
+  "tidyverse",    
+  "reshape2",      
+  "corrplot",     
+  "tidyr",         
+  "grf",          
+  "glmnet",       
+  "causalweight", 
+  "randomForest", 
+  "caret",         
+  "tidymodels",  
+  "ranger",        
+  "patchwork"      
 ))
 
 --- 
