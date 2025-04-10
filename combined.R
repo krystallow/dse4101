@@ -158,14 +158,8 @@ ggplot(df_compare, aes(x = CATE, fill = Method)) +
   theme_minimal() +
   scale_fill_brewer(palette = "Set1")
 
-# Diagnostic metrics
-cat("Robustness Check \n")
-cat(sprintf("Correlation between full and CV estimates: %.3f\n", 
-            cor(tau_hat_cf, tau_hat_cv)))
-cat(sprintf("Mean absolute difference: %.3f\n", 
-            mean(abs(tau_hat_cf - tau_hat_cv))))
-cat(sprintf("Fraction of sign changes: %.3f\n", 
-            mean(sign(tau_hat_cf) != sign(tau_hat_cv))))
+mean(abs(tau_hat_cf - tau_hat_cv)
+
 
 #######
 # DML #
@@ -215,9 +209,8 @@ cate_pred <- predict(cate_model, X)
 dml_mse <- mean(residual_Y^2)
 dml_ci_width <- 2 * 1.96 * sd(residual_Y / (residual_D + 1e-6))
 
-cat("\n DML-CATE Model Evaluation:\n")
-cat("MSE:", round(dml_mse, 4), "\n")
-cat("95% CI Width (approx):", round(dml_ci_width, 4), "\n")
+round(dml_mse, 4)
+round(dml_ci_width, 4)
 
 
 hist(cate_pred, breaks = 30, main = "Distribution of CATE Estimates (DML - Residualized)",
@@ -286,12 +279,7 @@ cate_mse <- mean(residual_Y^2)
 cate_ci_width <- 2 * 1.96 * sd(residual_Y / (residual_D + 1e-6))
 cate_summary <- summary(cate_model)
 
-cat("\n FWL-CATE Model Evaluation with Cross-Fitting:\n")
-cat("MSE:", round(cate_mse, 4), "\n")
-cat("95% CI Width (approx):", round(cate_ci_width, 4), "\n")
-
-cat("\n Linear Regression Summary (CATE Model):\n")
-print(cate_summary)
+cate_summary
 
 
 hist(cate_pred, breaks = 30, main = "Distribution of CATE Estimates (FWL-CATE)",
@@ -474,7 +462,7 @@ covariates <- c("Work.Study.Hours", "Depression", "Financial.Stress", "Academic.
 
 # Compare covariate balance across CATE groups
 table1 <- CreateTableOne(vars = covariates, strata = "CATE_group", data = full_data, test = TRUE)
-print(table1, smd = TRUE)  # show standardised mean differences (SMD)
+print(table1, smd = TRUE)  # show standardised mean differences 
 
 
 #####################
